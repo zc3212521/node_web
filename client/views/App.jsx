@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Routes from '../config/router'
+// import Routes from '../config/router'
 
 import { addAsync } from "../store/reducer/test";
 
