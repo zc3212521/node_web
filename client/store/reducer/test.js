@@ -18,5 +18,5 @@ export const removeNum = () => ({type:actions.test.REMOVE})
 export const addAsync = () => dispatch => {
     setTimeout(()=>{
         dispatch(addNum())
-    }, 2000)
+    })
 }

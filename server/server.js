@@ -18,6 +18,7 @@ if(!isDev){ // 非开发环境
 
     app.get('*', function(req, res){
         const appString = ReactSSR.renderToString(serverEntry)
+        console.log(appString)
         template = template.replace('<!-- app -->', appString)
         res.send(template)
     })

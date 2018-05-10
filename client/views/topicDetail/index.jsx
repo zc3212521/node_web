@@ -1,7 +1,25 @@
-import React  from 'react'
+import React from 'react';
+import { Router, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+// import Routes from '../config/router'
 
-export default class TopicList extends React.Component {
+import { addAsync } from "../../store/reducer/test";
+
+@connect(
+    state => ({num: state}),
+    {addAsync}
+)
+
+export default class App extends React.Component{
     render() {
-        return <div>This is topic detail</div>
+        const num = this.props.num;
+        const addAsync = this.props.addAsync;
+        return (
+            <div>
+                <div>当前数字{num}</div>
+                <button onClick={addAsync}>+</button>
+            </div>
+        )
     }
 }
+

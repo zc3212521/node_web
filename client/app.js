@@ -4,14 +4,12 @@ import {AppContainer} from 'react-hot-loader' //热更替相关
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 
-import thunk from 'redux-thunk'
-
+import configureStore  from './store/store'
 import App from './views/App.jsx'
 
-import { counter } from './store/reducer/test'
-import { createStore, applyMiddleware, compose } from 'redux'
-const reduxDevTools = window.devToolsExtension ? window.devToolsExtension() : () => {}
-const store = createStore(counter, compose(applyMiddleware(thunk), reduxDevTools));
+// `__INITIAL_STATE__` 来自服务器端渲染
+const initialState = window.__INITIAL_STATE__;
+const store = configureStore(initialState, 'client')
 
 const root = document.getElementById('root')
 const render = (Component, renderMethod = "render") => {
